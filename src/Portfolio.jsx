@@ -105,15 +105,22 @@ const PROJECTS = [
 const TIMELINE = [
   {
     type: "Work",
-    years: "2021 – 2022",
-    title: "Trainee IT Engineer",
-    org: "ThinkNEXT Pvt. Ltd.",
+    years: "2025 – Present",
+    title: "Freelance Web Developer",
+    org: "Fiverr",
   },
+
   {
     type: "Work",
     years: "2023 – 2025",
-    title: "WIX Developer",
+    title: "Web Developer",
     org: "BDCalling IT LTD",
+  },
+  {
+    type: "Work",
+    years: "2021 – 2022",
+    title: "Trainee IT Engineer",
+    org: "ThinkNEXT Pvt. Ltd.",
   },
   {
     type: "Education",
@@ -135,6 +142,8 @@ const CONTACTS = [
   { icon: MapPin, label: "Location", value: "Brahmanbaria, Bangladesh" },
   { icon: Github, label: "GitHub", value: "joysahacse23" },
 ];
+
+const ROLES = ["Frontend Developer", "Wix Developer", "CMS Developer"];
 
 // ─── Portfolio ────────────────────────────────────────────────────────────────
 export default function Portfolio() {
@@ -182,7 +191,27 @@ export default function Portfolio() {
         { y: 40, opacity: 0 },
         { y: 0, opacity: 1, stagger: 0.15, duration: 0.8, ease: "power3.out" }
       );
-      tl.to(roleRef.current, { duration: 2, text: "Front-End Developer", ease: "none" }, "-=0.4");
+
+      // Recursive typewriter
+      const typeNext = (index = 0) => {
+        gsap.to(roleRef.current, {
+          duration: ROLES[index].length * 0.1,
+          text: ROLES[index],
+          ease: "none",
+          onComplete: () => {
+            gsap.to(roleRef.current, {
+              duration: ROLES[index].length * 0.05,
+              text: "",
+              ease: "none",
+              delay: 2, // Wait before erasing
+              onComplete: () => {
+                typeNext((index + 1) % ROLES.length);
+              }
+            });
+          }
+        });
+      };
+      tl.call(typeNext, null, "-=0.2");
 
       // Floating orb GSAP yoyo
       gsap.to(orb1Ref.current, {
@@ -378,6 +407,7 @@ export default function Portfolio() {
           <div className="hero-item text-xl sm:text-2xl md:text-3xl font-bold mb-6" style={{ color: "#93C5FD" }}>
             <span className="opacity-40">{"<"} </span>
             <span ref={roleRef}></span>
+            <span className="cursor-blinker">|</span>
             <span className="opacity-40"> {"/>"}</span>
           </div>
 
@@ -707,7 +737,7 @@ export default function Portfolio() {
 
             {/* Right */}
             <p className="text-sm text-white/40 md:text-right">
-              © 2024 — Crafted with <span style={{ color: "#F9A8D4" }}>♥</span> by Joy Saha
+              © {new Date().getFullYear()} — Crafted with <span style={{ color: "#F9A8D4" }}>♥</span> by Joy Saha
             </p>
           </div>
 
