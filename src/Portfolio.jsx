@@ -137,10 +137,10 @@ const TIMELINE = [
 ];
 
 const CONTACTS = [
-  { icon: Mail, label: "Email", value: "joysahacse23@gmail.com" },
-  { icon: Phone, label: "Phone", value: "+8801861490690" },
-  { icon: MapPin, label: "Location", value: "Dhaka, Bangladesh" },
-  { icon: Github, label: "GitHub", value: "joysahacse23" },
+  { icon: Mail, label: "Email", value: "joysahacse23@gmail.com", href: "mailto:joysahacse23@gmail.com" },
+  { icon: Phone, label: "Phone", value: "+8801861490690", href: "tel:+8801861490690" },
+  { icon: MapPin, label: "Location", value: "Dhaka, Bangladesh", href: "https://www.google.com/maps/search/Dhaka,+Bangladesh" },
+  { icon: Github, label: "GitHub", value: "joysahacse23", href: "https://github.com/joysahacse23" },
 ];
 
 const ROLES = ["Web Developer", "Frontend Developer", "CMS Expert", "Web Designer"];
@@ -311,9 +311,9 @@ export default function Portfolio() {
       >
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <span className="text-xl font-black tracking-tight text-white">
+          <a href="/" className="text-xl font-black tracking-tight text-white">
             JOY<span style={{ color: "#6EE7B7" }}>.</span>
-          </span>
+          </a>
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-6">
@@ -688,9 +688,12 @@ export default function Portfolio() {
 
             {/* Right */}
             <div className="grid gap-4">
-              {CONTACTS.map(({ icon: Icon, label, value }) => (
-                <div
+              {CONTACTS.map(({ icon: Icon, label, value, href }) => (
+                <a
                   key={label}
+                  href={href}
+                  target={label === "Email" || label === "Phone" ? "_self" : "_blank"}
+                  rel="noopener noreferrer"
                   className="contact-card flex items-center gap-4 p-4 rounded-xl border border-white/10 bg-white/5 transition-all duration-300 cursor-pointer"
                 >
                   <div
@@ -703,7 +706,7 @@ export default function Portfolio() {
                     <p className="text-xs text-white/40 font-semibold uppercase tracking-wider">{label}</p>
                     <p className="text-sm text-white font-semibold">{value}</p>
                   </div>
-                </div>
+                </a>
               ))}
             </div>
           </div>
