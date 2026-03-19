@@ -18,9 +18,9 @@ gsap.registerPlugin(ScrollTrigger, TextPlugin);
 const NAV_LINKS = ["About", "Skills", "Projects", "Experience", "Contact"];
 
 const STATS = [
-  { value: "1+", label: "Years Exp.", icon: Sparkles },
-  { value: "4+", label: "Projects", icon: Layers },
-  { value: "13+", label: "Technologies", icon: Code2 },
+  { value: "5+", label: "Years Exp.", icon: Sparkles },
+  { value: "100+", label: "Projects", icon: Layers },
+  { value: "20+", label: "Technologies", icon: Code2 },
   { value: "B.Tech", label: "Degree", icon: Cpu },
 ];
 
@@ -139,11 +139,11 @@ const TIMELINE = [
 const CONTACTS = [
   { icon: Mail, label: "Email", value: "joysahacse23@gmail.com" },
   { icon: Phone, label: "Phone", value: "+8801861490690" },
-  { icon: MapPin, label: "Location", value: "Brahmanbaria, Bangladesh" },
+  { icon: MapPin, label: "Location", value: "Dhaka, Bangladesh" },
   { icon: Github, label: "GitHub", value: "joysahacse23" },
 ];
 
-const ROLES = ["Frontend Developer", "Wix Developer", "CMS Developer"];
+const ROLES = ["Web Developer", "Frontend Developer", "CMS Expert", "Web Designer"];
 
 // ─── Portfolio ────────────────────────────────────────────────────────────────
 export default function Portfolio() {
@@ -719,7 +719,7 @@ export default function Portfolio() {
               <p className="text-2xl font-black text-white">
                 JOY<span style={{ color: "#6EE7B7" }}>.</span>SAHA
               </p>
-              <p className="text-sm text-white/40 mt-1">Front-End Developer</p>
+              <p className="text-sm text-white/40 mt-1">Web Developer</p>
             </div>
 
             {/* Center */}
