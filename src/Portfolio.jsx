@@ -138,7 +138,7 @@ const TIMELINE = [
 
 const CONTACTS = [
   { icon: Mail, label: "Email", value: "joysahacse23@gmail.com", href: "mailto:joysahacse23@gmail.com" },
-  { icon: Phone, label: "Phone", value: "+8801861490690", href: "tel:+8801861490690" },
+  { icon: Phone, label: "Phone", value: "+8801861490690", href: "https://wa.link/21hqh4" },
   { icon: MapPin, label: "Location", value: "Dhaka, Bangladesh", href: "https://www.google.com/maps/search/Dhaka,+Bangladesh" },
   { icon: Github, label: "GitHub", value: "joysahacse23", href: "https://github.com/joysahacse23" },
 ];
@@ -692,7 +692,7 @@ export default function Portfolio() {
                 <a
                   key={label}
                   href={href}
-                  target={label === "Email" || label === "Phone" ? "_self" : "_blank"}
+                  target={label === "Email" ? "_self" : "_blank"}
                   rel="noopener noreferrer"
                   className="contact-card flex items-center gap-4 p-4 rounded-xl border border-white/10 bg-white/5 transition-all duration-300 cursor-pointer"
                 >
